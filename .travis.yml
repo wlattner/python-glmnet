@@ -13,6 +13,9 @@ addons:
             - libatlas-dev
             - gfortran
 install: 
+    - pip install "numpy>=1.9.1"
+    - pip install "scipy>=0.14.1"
+    - pip install pandas
     - pip install -r requirements.txt
     - python setup.py install
 script: nosetests -v
