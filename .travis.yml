@@ -1,21 +1,31 @@
 sudo: false
+
 language: python
+
 python:
     - "3.2"
     - "3.3"
     - "3.4"
     - "3.5"
     - "3.6"
+
+cache:
+    apt: true
+    directories:
+        - $HOME/.cache/pip
+        - $HOME/.ccache
+
 addons:
     apt:
         packages:
             - liblapack-dev
             - libatlas-dev
             - gfortran
+
 install: 
-    - pip install "numpy>=1.9.1"
-    - pip install "scipy>=0.14.1"
-    - pip install pandas
+    - pip install "numpy>=1.9.1" --only-binary=all
+    - pip install "scipy>=0.14.1" --only-binary=all
+    - pip install pandas --only-binary=all
     - pip install -r requirements.txt
     - python setup.py install
 script: nosetests -v
