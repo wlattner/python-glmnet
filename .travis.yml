@@ -1,5 +1,11 @@
 sudo: false
 language: python
+addons:
+    apt:
+        packages:
+            - liblapack-dev
+            - libatlas-dev
+            - gfortran
 install: 
     - pip install -r requirements.txt
     - python setup.py install
